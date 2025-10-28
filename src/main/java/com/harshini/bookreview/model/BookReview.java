@@ -1,5 +1,4 @@
 package com.harshini.bookreview.model;
-//package com.harshini.bookreview.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,16 +20,6 @@ public class BookReview {
 
     // Default constructor (required by JPA)
     public BookReview() {}
-
-    //Parameterized constructor
-    public BookReview(Long id, String bookTitle, String author, String review, String reviewer, int rating) {
-        this.id = id;
-        this.bookTitle = bookTitle;
-        this.author = author;
-        this.review = review;
-        this.reviewer = reviewer;
-        this.rating = rating;
-    }
 
     // Constructor with fields
     public BookReview(String bookTitle, String author, String reviewer, String review, int rating) {
@@ -60,4 +49,3 @@ public class BookReview {
     public int getRating() { return rating; }
     public void setRating(int rating) { this.rating = rating; }
 }
-
