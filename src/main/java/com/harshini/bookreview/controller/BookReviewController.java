@@ -24,9 +24,7 @@ public class BookReviewController {
     // READ all reviews
     @GetMapping
     public List<BookReview> getAllReviews() {
-        return bookReviewRepository.findAll().stream()
-                .map(r -> new BookReview(r.getId(), r.getBookTitle(), r.getAuthor(), r.getReview(), r.getReviewer(), r.getRating()))
-                .toList();
+        return bookReviewRepository.findAll();
     }
 
     // READ a review by ID
@@ -54,4 +52,3 @@ public class BookReviewController {
         return "Review deleted successfully!";
     }
 }
-
