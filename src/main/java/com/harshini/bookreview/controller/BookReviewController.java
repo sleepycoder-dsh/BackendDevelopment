@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/reviews")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookReviewController {
 
     @Autowired
@@ -17,21 +18,31 @@ public class BookReviewController {
 
     // CREATE a new review
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:3000")
     public BookReview createReview(@RequestBody BookReview review) {
         return bookReviewRepository.save(review);
     }
 
     // READ all reviews
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<BookReview> getAllReviews() {
         return bookReviewRepository.findAll();
     }
 
     // READ a review by ID
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Optional<BookReview> getReviewById(@PathVariable Long id) {
         return bookReviewRepository.findById(id);
     }
+    // SEARCH reviews by book title
+    @GetMapping("/search")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public List<BookReview> searchByBookTitle(@RequestParam String title) {
+        return bookReviewRepository.findByBookTitleContainingIgnoreCase(title);
+    }
+
 
     // UPDATE a review
     @PutMapping("/{id}")
