@@ -17,20 +17,19 @@ public class BookReview {
     private String reviewer;
     private String review;
     private int rating;
+    private String sentiment;
 
-    // Default constructor (required by JPA)
     public BookReview() {}
 
-    // Constructor with fields
-    public BookReview(String bookTitle, String author, String reviewer, String review, int rating) {
+    public BookReview(String bookTitle, String author, String reviewer, String review, int rating, String sentiment) {
         this.bookTitle = bookTitle;
         this.author = author;
         this.reviewer = reviewer;
         this.review = review;
         this.rating = rating;
+        this.sentiment = sentiment;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -48,4 +47,7 @@ public class BookReview {
 
     public int getRating() { return rating; }
     public void setRating(int rating) { this.rating = rating; }
+
+    public String getSentiment() { return sentiment; }
+    public void setSentiment(String sentiment) { this.sentiment = sentiment; }
 }
